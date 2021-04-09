@@ -1,6 +1,5 @@
 import discord
 import random
-import os
 import math
 from discord.ext import commands
 from keep_alive import keep_alive
@@ -142,4 +141,4 @@ async def mathsqrt(ctx, x: float):
 	except:
 		pass
 keep_alive()
-client.run(os.getenv("TOKEN"))
+client.run("ODIzNjY0Njk3MDc2ODc1MzM1.YFkHhg.89eComhY7fvP8PWB6Bd3xe8t_Nc")
