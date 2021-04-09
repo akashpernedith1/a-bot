@@ -9,6 +9,12 @@ client=commands.Bot(command_prefix=".")
 async def on_ready():
   await client.change_presence(status=discord.Status.online,activity=discord.Game(".help"))
   print("Bot is ready.")
+@client.command(name="prefix",help="The prefix I respond to.")
+async def prefix(ctx):
+  await ctx.send(".")
+@client.command(name="invite",help="Link to invite me to your server(s).")
+async def invite(ctx):
+  await ctx.send("https://discord.com/api/oauth2/authorize?client_id=823664697076875335&permissions=76800&scope=bot")
 @client.command(name="ping",help="Returns Pong! with latency.")
 async def ping(ctx):
   await ctx.send(f"**Pong!** {round(client.latency*1000)}ms")
@@ -47,8 +53,8 @@ async def echo(ctx,*,message):
 async def roll(ctx):
   nums=[1,2,3,4,5,6]
   await ctx.send(f"I rolled a {random.choice(nums)}")
-@client.command(name="toss",help="Flips an imaginary coin and says either heads or tails.")
-async def toss(ctx):
+@client.command(name="coinflip",help="Flips an imaginary coin and says either heads or tails.")
+async def coinflip(ctx):
   possibilities=["Heads","Tails"]
   await ctx.send(f"Result: **{random.choice(possibilities)}**")
 @client.command(name="delete",help="Deletes any amount of messages.")
@@ -106,7 +112,7 @@ async def mathexp(ctx, x: float, y: float):
 	except:
 		pass
 
-@client.command(name="subtraexct",help="Subtracts numbers (Calculator)")
+@client.command(name="subtract",help="Subtracts numbers (Calculator)")
 async def mathsub(ctx, x: float, y: float):
 	try:
 		result = sub(x, y)
